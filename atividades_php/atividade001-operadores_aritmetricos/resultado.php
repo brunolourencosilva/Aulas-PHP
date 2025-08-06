@@ -10,13 +10,12 @@
 
     <p>
         <?php
-        if (isset($_POST['mensagem'])){
-            $mensagem = htmlspecialchars($_POST['mensagem']);
+        $valor1 = $_POST['valor1']
+        $valor2 = $_POST['valor2']
+        $operador = $_POST['Operador']
+        $resultado = 0
 
-            echo "Voce digitou: <strong>$mensagem</strong>";
-
-        }else {
-            echo "Nenhuma mensagem foi recebido.";
+        if $operador == "Soma(+)"{
         }
         ?>
     </p>

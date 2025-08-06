@@ -5,17 +5,35 @@
     <title>formulario</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
+
+<header>
+    <h1>Calculadora: Operadores Aritmétricos</h1>
+</header>
+
 <body>
-    <h1>Envie sua mensagem</h1>
+    <main>
 
-    <div class="caixa">
-        <form id="meuFormulario" method="POST" action="precesso.php">
-            <label>Digite sua mensagem:</label>
-            <input type="text" id="mensagem" nome="mensagem" required><br>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+        <div class="caixa">
+            <form id="meuFormulario" method="POST" action="resultado.php">
 
+                <label for="valor1">Digite o primeiro numero:</label>
+                <input type="number" id="valor1" name="valor" required><br>
+
+                <label for="valor2">Digite o segundo numero:</label>
+                <input type="number" id="valor2" name="valor" required><br>
+
+                <label for="Operador">Escolha a operação:</label>
+                <select name="Operador" id="Operador">
+                    <option value="selecionar">--Selecione--</option>
+                    <option value="soma">Soma(+)</option>
+                    <option value="subtracao">Subtração(-)</option>
+                    <option value="multplicacao">multiplicação(x)</option>
+                    <option value="divisao">Divisão(÷)</option>
+                </select>
+                <button id="btnCalcular">Calcular</button>
+            </form>
+        </div>
+    </main>
     <script src="js/script.js"></script>
 </body>
 </html>
