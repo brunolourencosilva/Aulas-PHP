@@ -2,24 +2,59 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Processando mensagem</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <title>Resultado da Calculadora</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
 <body>
-    <h1>Resultado:</h1>
+    <h1>Resultado</h1>
 
-    <p>
+    <div class="caixa">
         <?php
-        $valor1 = $_POST['valor1']
-        $valor2 = $_POST['valor2']
-        $operador = $_POST['Operador']
-        $resultado = 0
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $num1 = $_POST["num1"] ?? null;
+            $num2 = $_POST["num2"] ?? null;
+            $operacao = $_POST["operacao"] ?? '';
 
-        if $operador == "Soma(+)"{
+            if ($num1 === null || $num2 === null || $operacao === '') {
+                echo "<p>Todos os campos são obrigatórios.</p>";
+                echo "<a href='index.php'>Voltar</a>";
+                exit;
+            }
+
+            switch ($operacao) {
+                case 'soma':
+                    $resultado = $num1 + $num2;
+                    $simbolo = '+';
+                    break;
+                case 'subtracao':
+                    $resultado = $num1 - $num2;
+                    $simbolo = '-';
+                    break;
+                case 'multiplicacao':
+                    $resultado = $num1 * $num2;
+                    $simbolo = '×';
+                    break;
+                case 'divisao':
+                    if ($num2 == 0) {
+                        echo "<p>Erro: divisão por zero não é permitida.</p>";
+                        echo "<a href='index.php'>Voltar</a>";
+                        exit;
+                    }
+                    $resultado = $num1 / $num2;
+                    $simbolo = '÷';
+                    break;
+                default:
+                    echo "<p>Operação inválida.</p>";
+                    echo "<a href='index.php'>Voltar</a>";
+                    exit;
+            }
+
+            echo "<p><strong>{$num1} {$simbolo} {$num2} = {$resultado}</strong></p>";
+            echo "<a href='index.php'>Calcular novamente</a>";
+        } else {
+            echo "<p>Acesso inválido.</p>";
         }
         ?>
-    </p>
-
-    <a href="index.php">Voltar</a>
+    </div>
 </body>
 </html>

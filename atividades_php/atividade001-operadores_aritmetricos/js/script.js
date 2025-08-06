@@ -1,19 +1,20 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('formCalc');
 
-    const form = document.getElementById('meuFormulario');
+    form.addEventListener('submit', function(event) {
+        const num1 = document.getElementById('num1').value.trim();
+        const num2 = document.getElementById('num2').value.trim();
+        const operacao = document.getElementById('operacao').value;
 
-    form.addEventListener('submit',function(event){
-        const mensagem = document.getElementById('mensagem').value.trim()
-
-        if (mensagem ===""){
-            alert("Por favor, digite uma mensagem antes de enviar.");
+        if (num1 === '' || num2 === '') {
+            alert('Por favor, preencha os dois números.');
             event.preventDefault();
             return;
         }
 
-        const confirmar = confirm("Deseja realmente envviar esta mensagem?");
-        if (!confirmar){
+        if (operacao === '') {
+            alert('Por favor, selecione uma operação.');
             event.preventDefault();
-        };
+        }
     });
 });

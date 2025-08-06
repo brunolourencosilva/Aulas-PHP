@@ -2,38 +2,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>formulario</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <title>Calculadora: Operadores Aritméticos</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
 </head>
-
-<header>
-    <h1>Calculadora: Operadores Aritmétricos</h1>
-</header>
-
 <body>
-    <main>
+    <h1>Calculadora: Operadores Aritméticos</h1>
 
-        <div class="caixa">
-            <form id="meuFormulario" method="POST" action="resultado.php">
+    <div class="caixa">
+        <form id="formCalc" method="POST" action="resultado.php">
+            <label for="num1">Digite o primeiro número:</label>
+            <input type="number" id="num1" name="num1">
 
-                <label for="valor1">Digite o primeiro numero:</label>
-                <input type="number" id="valor1" name="valor" required><br>
+            <label for="num2">Digite o segundo número:</label>
+            <input type="number" id="num2" name="num2">
 
-                <label for="valor2">Digite o segundo numero:</label>
-                <input type="number" id="valor2" name="valor" required><br>
+            <label for="operacao">Escolha a operação:</label>
+            <select id="operacao" name="operacao">
+                <option value="">--Selecione--</option>
+                <option value="soma">Soma (+)</option>
+                <option value="subtracao">Subtração (-)</option>
+                <option value="multiplicacao">Multiplicação (×)</option>
+                <option value="divisao">Divisão (÷)</option>
+            </select>
 
-                <label for="Operador">Escolha a operação:</label>
-                <select name="Operador" id="Operador">
-                    <option value="selecionar">--Selecione--</option>
-                    <option value="soma">Soma(+)</option>
-                    <option value="subtracao">Subtração(-)</option>
-                    <option value="multplicacao">multiplicação(x)</option>
-                    <option value="divisao">Divisão(÷)</option>
-                </select>
-                <button id="btnCalcular">Calcular</button>
-            </form>
-        </div>
-    </main>
-    <script src="js/script.js"></script>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+
+    <script src="assets/js/validacao.js"></script>
 </body>
 </html>
