@@ -12,42 +12,15 @@
 
     <main>
         <section>
-            <h2>Estrutura FOR</h2>
-            <div class="caixa">
-                <?php
-                    // incluie o arquivo PHP que contem as funções
-                    // em seguida,executa a função que exibe o loop FOR
-                    include "public/processo.php";
-                    exibirFor();
-                ?>
-            </div>
-        </section>
-        <!-- Seção que exibe loop WHILE -->
-        <section>
-            <h2>Estrutura WHILE</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop wHILE
-                    exibirWhile();
-                ?>
-            </div>
-        </section>
+            <form class="caixa">
+            <h2>Tabuada</h2>
+            <label for="entrada">Digite sua mensagem:</label><br>
+            <input id="entrada" type="number" name="mensagem" required>
+            <button type="submit">Enviar</button>
 
-        <!-- Seção que exibe loop FOREACH -->
-        <section>
-            <h2>Estrutura FOREACH</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop FOREACH
-                    exibirForeach();
-                ?>
-            </div>
+            </form>
         </section>
     </main>
-
-    <footer>
-        <p>Exemplo didatico de PHP &copy; 2025</p>
-    </footer>
 </body>
 </hmlt>
 
