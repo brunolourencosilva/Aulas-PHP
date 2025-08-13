@@ -12,10 +12,31 @@
     </header>
 
     <main>
-        <form class="formulario" method="POST" action="public/processo.php">
-        <?php
+        <form class="formulario">
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $aluno = isset($_POST['nomeAluno']);
 
-        ?>
+                $varNota1 = isset($_POST['nota1']) ? floatval($_POST['nota1']) : 0;
+                $varNota2 = isset($_POST['nota2']) ? floatval($_POST['nota2']) : 0;
+                $varNota3 = isset($_POST['nota3']) ? floatval($_POST['nota3']) : 0;
+                $varNota4 = isset($_POST['nota4']) ? floatval($_POST['nota4']) : 0;
+
+
+                function calcularSituacao ($varNota1,$varNota2,$varNota3,$varNota4){
+                    $resultado = $varNota1+$varNota2+$varNota3+$varNota4;
+                    $media = $resultado / 4;
+
+                    if $media >= 60{
+                        $situacao = "Aprovado"
+                        echo "Media do aluno = $media | Situacao do aluno: $situacao";
+                    }elseif $media < 60
+                    
+                };
+            
+            calcularSituacao($varNota1, $varNota2, $varNota3, $varNota4);
+
+            ?>
         </form>
     </main>
 

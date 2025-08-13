@@ -22,21 +22,21 @@ Permita que o programa cadastre vários alunos, mostrando o resultado individual
             <form class="formulario" method="POST" action="public/processo.php">
 
                 <label for="nomeAluno">Digite o nome do aluno</label><br>
-                <input id="nomeAluno" type="text" name="nomeAluno" required>
+                <input id="nomeAluno" type="text" name="nomeAluno" min="0" max="25" required>
 
                 <div id="notas">
 
                     <label for="nota1">Digite a 1ª nota</label><br>
-                    <input id="nota1" type="number" name="entrada" required>
+                    <input id="nota1" type="number" name="nota1" min="0" max="25" required>
                     
                     <label for="nota2">Digite a 2ª nota</label><br>
-                    <input id="nota2" type="number" name="entrada" required>
+                    <input id="nota2" type="number" name="nota2"min="0" max="25"  required>
                     
                     <label for="nota3">Digite a 3ª nota</label><br>
-                    <input id="nota3" type="number" name="entrada" required>
+                    <input id="nota3" type="number" name="nota3" min="0" max="25" required>
                     
                     <label for="nota4">Digite a 4ª nota</label><br>
-                    <input id="nota4" type="number" name="entrada" required>
+                    <input id="nota4" type="number" name="nota4" min="0" max="25" required>
                     
                 </div>
                     <button type="submit">Enviar</button>
