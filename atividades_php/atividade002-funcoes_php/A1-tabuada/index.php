@@ -2,25 +2,38 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de estruturas de repetição em PHP</title>
+    <title>Tabela Tabuada</title>
     <link rel="stylesheet" href="public/css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Exemplo de estruturas de Repetição</h1>
+        <h1>Tabela Tabuada</h1>
     </header>
 
     <main>
-        <section>
-            <form class="caixa">
-            <h2>Tabuada</h2>
-            <label for="entrada">Digite sua mensagem:</label><br>
-            <input id="entrada" type="number" name="mensagem" required>
-            <button type="submit">Enviar</button>
+        <div>
+            <form class="formulario" method="POST" action="public/processo.php">
+                <h2>Tabuada</h2>
+                
+                <!-- Campo para o número base da tabuada -->
+                <label for="entrada">Digite o número:</label><br>
+                <input id="entrada" type="number" name="entrada" required>
+                
+                <!-- Seleção da operação matemática -->
+                <label for="operacao">Escolha a operação:</label>
+                <select id="operacao" name="operacao" required>
+                    <option value="">--Selecione--</option>
+                    <option value="+">Soma (+)</option>
+                    <option value="-">Subtração (-)</option>
+                    <option value="*">Multiplicação (*)</option>
+                    <option value="/">Divisão (/)</option>
+                </select>
 
+                <button type="submit">Enviar</button>
             </form>
-        </section>
+        </div>
     </main>
-</body>
-</hmlt>
 
+    <script src="assets/js/validacao.js"></script>
+</body>
+</html>
