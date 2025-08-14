@@ -1,53 +1,34 @@
+<!-- Desenvolva um programa que conte quantas vogais existem em uma frase digitada pelo usuário.
+
+Crie uma função que receba a string e retorne a contagem de cada vogal.
+Use laços de repetição para percorrer a string.
+Exiba ao final quantas vezes cada vogal aparece. -->
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de estruturas de repetição em PHP</title>
+    <title>Contador de Vogais em uma Frase</title>
     <link rel="stylesheet" href="public/css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Exemplo de estruturas de Repetição</h1>
+        <h1>Contador de Vogais em uma Frase</h1>
     </header>
 
     <main>
-        <section>
-            <h2>Estrutura FOR</h2>
-            <div class="caixa">
-                <?php
-                    // incluie o arquivo PHP que contem as funções
-                    // em seguida,executa a função que exibe o loop FOR
-                    include "public/processo.php";
-                    exibirFor();
-                ?>
-            </div>
-        </section>
-        <!-- Seção que exibe loop WHILE -->
-        <section>
-            <h2>Estrutura WHILE</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop wHILE
-                    exibirWhile();
-                ?>
-            </div>
-        </section>
+        <div>
+            <form class="formulario" method="POST" action="public/processo.php">
 
-        <!-- Seção que exibe loop FOREACH -->
-        <section>
-            <h2>Estrutura FOREACH</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop FOREACH
-                    exibirForeach();
-                ?>
-            </div>
-        </section>
+                <label for="frase">Digite uma frase:</label><br>
+                <input id="frase" type="text" name="frase" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </main>
 
-    <footer>
-        <p>Exemplo didatico de PHP &copy; 2025</p>
-    </footer>
+    <script src="assets/js/validacao.js"></script>
 </body>
-</hmlt>
-
+</html>
