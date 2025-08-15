@@ -11,7 +11,7 @@ $login_valido = false;
 $nome_usuario = '';
 
 // Pecorre o array de usuario para verificar crendenciais
-foreach ($usuario as $u){
+foreach ($usuarios as $u){
     if ($u['usuario'] === $usuario && $u['senha'] === $senha){
         $login_valido = true;
         $nome_usuario = $u['nome'];

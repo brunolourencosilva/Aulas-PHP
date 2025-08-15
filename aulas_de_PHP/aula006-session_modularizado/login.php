@@ -30,8 +30,7 @@ if (isset($_SESSION['usuario'])){
         <label>Senha:</label><br>
         <input type="password" name="senha" required><br><br>
 
-        <button type="submit" name="senha" required></button>
+        <button type="submit" name="senha" required>enviar</button>
     </form>
 </body>
 </hmlt>
-C:\xampp\htdocs\Aulas-PHP\aulas_de_PHP\aula006-session _modularizado\login.php
