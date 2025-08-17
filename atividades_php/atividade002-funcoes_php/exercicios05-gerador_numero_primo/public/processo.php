@@ -29,6 +29,7 @@ $limite = isset($_POST['numeroPrimo']) ? (int) $_POST['numeroPrimo'] : 0;
     </header>
     <main>
         <div>
+            <form class="formulario" method="POST" action="../index.php">
             <?php
             if ($limite > 0) {
                 echo "<p>Números primos de 1 até $limite:</p>";
@@ -43,24 +44,9 @@ $limite = isset($_POST['numeroPrimo']) ? (int) $_POST['numeroPrimo'] : 0;
                 echo "<p>Nenhum número válido foi informado.</p>";
             }
             ?>
-        </div>
-
-        <div>
-            <form method="POST" action="../index.php">
                 <button type="submit">Gerar Novamente</button>
             </form>
-            <form method="POST" action="">
-                <button type="submit" name="sair">Sair</button>
-            </form>
         </div>
-
-        <?php
-        // Se o usuário clicar em "Sair"
-        if (isset($_POST['sair'])) {
-            echo "<p>Programa encerrado. Obrigado por usar!</p>";
-            exit;
-        }
-        ?>
     </main>
 </body>
 </html>
