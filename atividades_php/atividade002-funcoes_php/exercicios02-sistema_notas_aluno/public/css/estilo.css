@@ -1,12 +1,14 @@
-body{
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #c4c4c4;
     color: #333;
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header{
+header {
     background: #c70b3a;
     color: white;
     text-align: center;
@@ -14,41 +16,67 @@ header{
 }
 
 main {
-    width: 500px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 600px; /* limite de largura da área principal */
+    margin: 30px auto;
+    padding: 10px;
 }
 
-section{
-    margin-top: 50px;
-    margin-bottom: 30px;
+section {
+    margin: 40px 0;
 }
 
-h2{
+h2 {
     color: #c70b3a;
+    text-align: center;
 }
 
-label, input, select, button {
-    width: 150px;
-    margin: 5px 0;
+/* Formulário */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-input, select {
-    padding: 8px;
-    border: 1px solid #ccc;
+/* Labels e inputs alinhados em coluna */
+.formulario label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+}
+
+.formulario input, 
+.formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
     border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
-button {
-    font-size: 20px;
+.formulario button {
+    font-size: 16px;
     background-color: #b50000;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
 }
 
-button:hover {
+.formulario button:hover {
     background-color: #7c051f;
 }
 
@@ -57,16 +85,5 @@ a {
     margin-top: 15px;
     text-decoration: none;
     color: #920606;
-}
-
-.formulario {
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    align-items: center;
-    background: rgb(255, 255, 255);
-    border-radius: 5px;
-    width: 400px;
-    padding: 15px;
-    box-shadow: 0 0 5px rgba(0,0,0,0,0.1);
 }
