@@ -9,52 +9,26 @@ Permita três tentativas de login antes de encerrar o programa. -->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de estruturas de repetição em PHP</title>
+    <title>Login Simples em PHP</title>
     <link rel="stylesheet" href="public/css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Exemplo de estruturas de Repetição</h1>
+        <h1>Sistema de Login</h1>
     </header>
 
     <main>
-        <section>
-            <h2>Estrutura FOR</h2>
-            <div class="caixa">
-                <?php
-                    // incluie o arquivo PHP que contem as funções
-                    // em seguida,executa a função que exibe o loop FOR
-                    include "public/processo.php";
-                    exibirFor();
-                ?>
-            </div>
-        </section>
-        <!-- Seção que exibe loop WHILE -->
-        <section>
-            <h2>Estrutura WHILE</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop wHILE
-                    exibirWhile();
-                ?>
-            </div>
-        </section>
+        <div >
+            <form class="formulario" method="POST" action="public/processo.php">
+                <label for="usuario">Usuário:</label><br>
+                <input type="text" name="usuario" required><br>
 
-        <!-- Seção que exibe loop FOREACH -->
-        <section>
-            <h2>Estrutura FOREACH</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop FOREACH
-                    exibirForeach();
-                ?>
-            </div>
-        </section>
+                <label for="senha">Senha:</label><br>
+                <input type="password" name="senha" required><br><br>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
     </main>
-
-    <footer>
-        <p>Exemplo didatico de PHP &copy; 2025</p>
-    </footer>
 </body>
-</hmlt>
-
+</html>
