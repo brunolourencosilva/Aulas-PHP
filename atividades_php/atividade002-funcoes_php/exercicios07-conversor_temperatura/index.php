@@ -1,3 +1,10 @@
+<!-- Crie um programa que converta temperaturas entre Celsius, Fahrenheit e Kelvin.
+
+Crie funções separadas para cada tipo de conversão.
+Peça ao usuário qual conversão deseja fazer e qual valor deseja converter.
+Utilize condicionais para escolher a função correta.
+Permita que o usuário repita quantas conversões quiser. -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,38 +18,29 @@
     </header>
 
     <main>
-        <section>
-            <h2>Estrutura FOR</h2>
-            <div class="caixa">
-                <?php
-                    // incluie o arquivo PHP que contem as funções
-                    // em seguida,executa a função que exibe o loop FOR
-                    include "public/processo.php";
-                    exibirFor();
-                ?>
-            </div>
-        </section>
-        <!-- Seção que exibe loop WHILE -->
-        <section>
-            <h2>Estrutura WHILE</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop wHILE
-                    exibirWhile();
-                ?>
-            </div>
-        </section>
+        <div class="formulario">
+            <form method="POST" action="public/processo.php">
+                <label for="acao">Escolha a ação:</label>
+                <select name="acao" id="acao" required>
+                    <option value="adicionar">Adicionar Produto</option>
+                    <option value="pesquisar">Pesquisar Produto</option>
+                    <option value="listar">Listar Todos</option>
+                </select>
 
-        <!-- Seção que exibe loop FOREACH -->
-        <section>
-            <h2>Estrutura FOREACH</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop FOREACH
-                    exibirForeach();
-                ?>
-            </div>
-        </section>
+                <div id="campos">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" name="nome" id="nome">
+
+                    <label for="preco">Preço:</label>
+                    <input type="number" name="preco" id="preco" step="0.01">
+
+                    <label for="pesquisa">Pesquisar por nome:</label>
+                    <input type="text" name="pesquisa" id="pesquisa">
+                </div>
+
+                <button type="submit">Executar</button>
+            </form>
+        </div>
     </main>
 
     <footer>
