@@ -37,6 +37,13 @@ foreach ($alunos as $aluno) {
     }
 
     // calcula a media
-    $media = $soma_notas / $sqd_notas
+    $media = $soma_notas / $sqd_notas;
+
+    // Exibe os dados do aluno
+    echo "<h3>Aluno: $nome</h3>";
+    echo "Soma: $soma-notas<br>";
+
+    //formata a media com 2 casas decimais
+    echo "Media: " . number_format($media,2,',','.') . "<hr>";
 }
 ?>
