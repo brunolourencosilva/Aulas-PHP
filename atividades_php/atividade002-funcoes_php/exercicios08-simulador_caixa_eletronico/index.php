@@ -1,53 +1,33 @@
+<!-- Faça um programa que simule um caixa eletrônico, onde o usuário informa um valor para saque.
+
+Crie uma função que calcule a quantidade de cada cédula (100, 50, 20, 10 e 5).
+Use estruturas condicionais para decidir como entregar o menor número de cédulas.
+Permita vários saques até o usuário encerrar o programa. -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de estruturas de repetição em PHP</title>
+    <title>Caixa Eletrônico</title>
     <link rel="stylesheet" href="public/css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Exemplo de estruturas de Repetição</h1>
+        <h1>Simulador de Caixa Eletrônico</h1>
     </header>
 
     <main>
-        <section>
-            <h2>Estrutura FOR</h2>
-            <div class="caixa">
-                <?php
-                    // incluie o arquivo PHP que contem as funções
-                    // em seguida,executa a função que exibe o loop FOR
-                    include "public/processo.php";
-                    exibirFor();
-                ?>
-            </div>
-        </section>
-        <!-- Seção que exibe loop WHILE -->
-        <section>
-            <h2>Estrutura WHILE</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop wHILE
-                    exibirWhile();
-                ?>
-            </div>
-        </section>
+        <div>
+            <form class="formulario" method="POST" action="public/processo.php">
+                <label for="valor">Digite o valor para saque:</label>
+                <input type="number" name="valor" id="valor" min="5" step="5" required>
 
-        <!-- Seção que exibe loop FOREACH -->
-        <section>
-            <h2>Estrutura FOREACH</h2>
-            <div class="caixa">
-                <?php
-                    // Chama a função que exibe o loop FOREACH
-                    exibirForeach();
-                ?>
-            </div>
-        </section>
+                <button type="submit">Sacar</button>
+            </form>
+        </div>
     </main>
-
-    <footer>
-        <p>Exemplo didatico de PHP &copy; 2025</p>
-    </footer>
 </body>
-</hmlt>
+</html>
+
+
 

@@ -37,8 +37,6 @@ Permita que o usuário repita quantas conversões quiser. -->
             </form>
         </div>
     </main>
-
-    <footer>
         <p>Exemplo didático de PHP &copy; 2025</p>
     </footer>
 </body>
