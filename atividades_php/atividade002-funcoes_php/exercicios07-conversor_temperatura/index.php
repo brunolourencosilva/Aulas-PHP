@@ -9,43 +9,39 @@ Permita que o usuário repita quantas conversões quiser. -->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de estruturas de repetição em PHP</title>
+    <title>Conversor de Temperaturas</title>
     <link rel="stylesheet" href="public/css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Exemplo de estruturas de Repetição</h1>
+        <h1>Conversor de Temperaturas</h1>
     </header>
 
     <main>
-        <div class="formulario">
-            <form method="POST" action="public/processo.php">
-                <label for="acao">Escolha a ação:</label>
-                <select name="acao" id="acao" required>
-                    <option value="adicionar">Adicionar Produto</option>
-                    <option value="pesquisar">Pesquisar Produto</option>
-                    <option value="listar">Listar Todos</option>
+        <div>
+            <form class="formulario" method="POST" action="public/processo.php">
+                <label for="valor">Digite o valor da temperatura:</label>
+                <input type="number" step="0.01" name="valor" id="valor" required>
+
+                <label for="conversao">Escolha a conversão:</label>
+                <select name="conversao" id="conversao" required>
+                    <option value="c_f">Celsius → Fahrenheit</option>
+                    <option value="c_k">Celsius → Kelvin</option>
+                    <option value="f_c">Fahrenheit → Celsius</option>
+                    <option value="f_k">Fahrenheit → Kelvin</option>
+                    <option value="k_c">Kelvin → Celsius</option>
+                    <option value="k_f">Kelvin → Fahrenheit</option>
                 </select>
 
-                <div id="campos">
-                    <label for="nome">Nome do Produto:</label>
-                    <input type="text" name="nome" id="nome">
-
-                    <label for="preco">Preço:</label>
-                    <input type="number" name="preco" id="preco" step="0.01">
-
-                    <label for="pesquisa">Pesquisar por nome:</label>
-                    <input type="text" name="pesquisa" id="pesquisa">
-                </div>
-
-                <button type="submit">Executar</button>
+                <button type="submit">Converter</button>
             </form>
         </div>
     </main>
 
     <footer>
-        <p>Exemplo didatico de PHP &copy; 2025</p>
+        <p>Exemplo didático de PHP &copy; 2025</p>
     </footer>
 </body>
-</hmlt>
+</html>
+
 
