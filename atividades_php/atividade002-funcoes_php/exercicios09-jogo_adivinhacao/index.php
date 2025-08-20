@@ -5,12 +5,11 @@ Use laços de repetição para permitir várias tentativas.
 Mostre ao final quantas tentativas o jogador precisou para acertar. -->
 
 <?php
-//  Inicia a sessão (sempre deve estar no topo da pagina antes de qualquer TMHL)
+
 session_start();
 
-// Verifica se o nome ja foi enviado pelo formulario
 if (isset($_POST["palpite"])){
-    // Armazenar o nome enviado na sessão
+
     $_SESSION["palpite"] = $_POST["palpite"];
 }
 ?>
@@ -31,7 +30,7 @@ if (isset($_POST["palpite"])){
         <div>
             <form class="formulario" method="POST" action="public/processo.php">
                 <label for="palpite">Digite um palpite entre 0 a 100:</label><br>
-                <input type="number" name="palpite" required>
+                <input type="number" name="palpite" min="1" required>
 
                 <button type="submit">Enviar</button>
             </form>
