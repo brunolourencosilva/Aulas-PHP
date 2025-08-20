@@ -4,6 +4,17 @@ Crie uma função que valide o palpite e retorne se o número é maior, menor ou
 Use laços de repetição para permitir várias tentativas.
 Mostre ao final quantas tentativas o jogador precisou para acertar. -->
 
+<?php
+//  Inicia a sessão (sempre deve estar no topo da pagina antes de qualquer TMHL)
+session_start();
+
+// Verifica se o nome ja foi enviado pelo formulario
+if (isset($_POST["palpite"])){
+    // Armazenar o nome enviado na sessão
+    $_SESSION["palpite"] = $_POST["palpite"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
