@@ -14,7 +14,7 @@ function validaTentativa($palpite, $numero_sorteado) {
     } elseif ($palpite > $numero_sorteado) {
         return "Seu palpite ($palpite) é MAIOR que o número.";
     } else {
-        return "Parabéns! Você acertou o número $numero_sorteado 🎉";
+        return "Parabéns! Você acertou o número $numero_sorteado ";
     }
 }
 
