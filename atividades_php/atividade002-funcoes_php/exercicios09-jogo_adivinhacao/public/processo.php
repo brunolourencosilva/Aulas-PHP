@@ -1,36 +1,39 @@
 <?php
 session_start();
 
-// Inicializa o número aleatório e tentativas
+// Inicializa o número aleatório e tentativas apenas na primeira execução
 if (!isset($_SESSION['numero_sorteado'])) {
     $_SESSION['numero_sorteado'] = rand(1, 100);
     $_SESSION['tentativas'] = 0;
 }
 
-function validaTentativas($entrada,$numero_aleatorio){ // PASSAR ESSA FUNÃO PARA O JAVASCRIPT
-    $mensagem = "";
-    // Loop de validação usando while
-    if (isset($_POST['palpite'])) {
-        $palpite = (int)$_POST['palpite'];
-        $_SESSION['tentativas']++;
-        
-        // Aqui o while será apenas simbólico para processar "até acertar"
-        $acertou = false;
-        while (!$acertou) {
-            if ($palpite < $_SESSION['numero_sorteado']) {
-                $mensagem = "Seu palpite: $palpite. O número é maior!";
-                break; // sai do while pois no navegador só processa um palpite por requisição
-            } elseif ($palpite > $_SESSION['numero_sorteado']) {
-                $mensagem = "Seu palpite: $palpite. O número é menor!";
-                break;
-            } else {
-                $mensagem = "Parabéns! Você acertou o número {$_SESSION['numero_sorteado']} em {$_SESSION['tentativas']} tentativas.";
-                unset($_SESSION['numero_sorteado']);
-                unset($_SESSION['tentativas']);
-                $acertou = true;
-                break;
-            }
+// Função que valida o palpite
+function validaTentativa($palpite, $numero_sorteado) {
+    if ($palpite < $numero_sorteado) {
+        return "Seu palpite ($palpite) é MENOR que o número.";
+    } elseif ($palpite > $numero_sorteado) {
+        return "Seu palpite ($palpite) é MAIOR que o número.";
+    } else {
+        return "Parabéns! Você acertou o número $numero_sorteado 🎉";
+    }
+}
+
+$mensagem = "";
+
+if (isset($_POST['palpite'])) {
+    $palpite = (int) $_POST['palpite'];
+    $_SESSION['tentativas']++;
+
+    // Laço de repetição: continua até acertar
+    while (true) {
+        $mensagem = validaTentativa($palpite, $_SESSION['numero_sorteado']);
+
+        // Se acertou, encerra o jogo
+        if ($palpite == $_SESSION['numero_sorteado']) {
+            $mensagem .= "<br>Você precisou de {$_SESSION['tentativas']} tentativas.";
+            session_destroy(); // Reinicia o jogo em uma nova rodada
         }
+        break; // Sai do while (pois cada palpite vem por requisição)
     }
 }
 ?>
@@ -44,15 +47,16 @@ function validaTentativas($entrada,$numero_aleatorio){ // PASSAR ESSA FUNÃO PAR
 </head>
 <body>
     <header>
-        <h1>Jogo de Adivinhação</h1>
+        <h1>Resultado da Tentativa</h1>
     </header>
+    
     <main>
-        <form class="formulario" method="POST">
-            <?php if($mensagem) validaTentativas($entrada,$numero_aleatorio); ?>
-            <label>Digite um palpite entre 1 e 100:</label><br>
-            <input type="number" name="palpite" min="1" required>
-            <button type="submit">Enviar</button>
-        </form>
+        <div>
+            <form class="formulario" method="POST" action="public/processo.php">
+    <p><?= $mensagem ?></p>
+    <a href="../index.php">Voltar e tentar novamente</a>
+            </form>
+        <div>
     </main>
 </body>
 </html>
