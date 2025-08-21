@@ -5,6 +5,8 @@ Crie uma função que calcule a média e retorne se o aluno está Aprovado, em R
 Use estruturas condicionais para determinar o resultado.
 Permita que o programa cadastre vários alunos, mostrando o resultado individual de cada um. -->
 
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,7 +41,7 @@ Permita que o programa cadastre vários alunos, mostrando o resultado individual
                     <input id="nota4" type="number" name="nota4" min="0" max="25" required>
                     
                 </div>
-                    <button type="submit">Enviar</button>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </main>
