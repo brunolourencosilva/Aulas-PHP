@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Tabela Tabuada</title>
-        <link rel="stylesheet" href="/Aulas-PHP/atividades_php/atividade002-funcoes_php/A1-tabuada/public/css/estilo.css">
+        <link rel="stylesheet" href="css/estilo.css">
 
     </head>
     <body>
