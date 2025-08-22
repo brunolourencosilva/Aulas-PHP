@@ -79,27 +79,3 @@ a {
     color: #920606;
     text-align: center;
 }
-#notas{
-    align-items: center;
-    text-align: center;
-    width: 100px;
-    padding-bottom: 10px;
-    height: auto;
-}
-
-#nota label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    text-align: left;
-    width: 100%;
-}
-
-#nota input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #bbb;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
