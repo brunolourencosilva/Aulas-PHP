@@ -1,13 +1,13 @@
 body{
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #c4c4c4;
+    background: #616161;
     color: #333;
     
 }
 
 header{
-    background: #c70b3a;
+    background: #0bc7c7;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -24,7 +24,8 @@ section{
 }
 
 h2{
-    color: #c70b3a;
+    background: #0bc7c7;
+    text-align: center;
 }
 
 label, input, select, button {
@@ -40,7 +41,7 @@ input, select {
 
 button {
     font-size: 20px;
-    background-color: #b50000;
+    background-color: #00a9b5;
     color: white;
     padding: 10px;
     border: none;
@@ -49,14 +50,14 @@ button {
 }
 
 button:hover {
-    background-color: #7c051f;
+    background-color: #056a7c;
 }
 
 a {
     display: block;
     margin-top: 15px;
     text-decoration: none;
-    color: #920606;
+    color: #000000;
 }
 
 .formulario {

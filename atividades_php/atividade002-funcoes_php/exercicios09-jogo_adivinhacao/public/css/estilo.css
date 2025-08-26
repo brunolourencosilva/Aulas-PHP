@@ -7,7 +7,7 @@ body{
 }
 
 header{
-    background: #c70b3a;
+    background: #c7b40b;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -24,7 +24,7 @@ section{
 }
 
 h2{
-    color: #c70b3a;
+    color: #000000;
 }
 
 label, input, select, button {
@@ -40,7 +40,7 @@ input, select {
 
 button {
     font-size: 20px;
-    background-color: #b50000;
+    background-color: #b5b200;
     color: white;
     padding: 10px;
     border: none;
@@ -49,14 +49,14 @@ button {
 }
 
 button:hover {
-    background-color: #7c051f;
+    background-color: #7c7a05;
 }
 
 a {
     display: block;
     margin-top: 15px;
     text-decoration: none;
-    color: #920606;
+    color: #000000;
 }
 
 .formulario {

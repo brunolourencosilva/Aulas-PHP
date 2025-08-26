@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #c4c4c4;
+    background: #616161;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background: #c70b3a;
+    background: #0bc7c7;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -27,7 +27,7 @@ section {
 }
 
 h2 {
-    color: #c70b3a;
+    background: #0bc7c7;
     text-align: center;
 }
 
@@ -58,7 +58,7 @@ h2 {
 
 .formulario button {
     font-size: 16px;
-    background-color: #b50000;
+    background-color: #00b5b5;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -69,14 +69,14 @@ h2 {
 }
 
 .formulario button:hover {
-    background-color: #7c051f;
+    background-color: #05787c;
 }
 
 a {
     display: block;
     margin-top: 15px;
     text-decoration: none;
-    color: #920606;
+    color: #068292;
     text-align: center;
 }
 
@@ -96,5 +96,5 @@ a {
 
 .listaAluno hr{
     width: 300px;
-    border: 2px solid #920606;
+    border: 2px solid #068992;
 }
