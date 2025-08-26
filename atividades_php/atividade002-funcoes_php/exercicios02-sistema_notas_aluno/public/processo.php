@@ -54,6 +54,7 @@ function exibirAlunos() {
             echo "<p><strong>Aluno:</strong> {$aluno['nome']}</p>";
             echo "<p><strong>Situação:</strong> {$aluno['situacao']}</p>";
             echo "<p><strong>Média:</strong> {$aluno['media']}</p><hr>";
+            echo "<hr>";
         }
     } else {
         echo "<p>Nenhum aluno cadastrado.</p>";
@@ -79,8 +80,7 @@ function exibirAlunos() {
 
                 <button type="submit" name="apagar">Apagar Lista / Encerrar Sessão</button>
             </form>
-            <!-- =============== Fazer css dessa classe ===============-->
-            <form class="listaAluno"> 
+            <form class="listaAluno">
                 <?php exibirAlunos(); ?>
             </form>
         </div>
