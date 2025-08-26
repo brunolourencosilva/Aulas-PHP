@@ -16,23 +16,29 @@
         <div >
             <form class="formulario" method="POST">
                 <?php
-                    // Array simples com usuários e senhas
-                    $usuarios = [
-                        "admin" => "1234",
-                        "joao" => "senha1",
-                        "maria" => "senha2"
-                    ];
+                // Array simples com usuários e senhas
+                $usuarios = [
+                    "admin" => "1234",
+                    "joao" => "senha1",
+                    "maria" => "senha2"
+                ];
 
-                    // Captura os dados enviados pelo formulário
-                    $usuario = $_POST['usuario'] ?? '';
-                    $senha   = $_POST['senha'] ?? '';
+                // Captura os dados enviados pelo formulário
+                $usuario = $_POST['usuario'] ?? '';
+                $senha   = $_POST['senha'] ?? '';
 
-                    // Função para validar login
-                    function validarLogin($usuario, $senha, $usuarios) {
-                        return isset($usuarios[$usuario]) && $usuarios[$usuario] === $senha;
+                // Função para validar login usando laço de repetição
+                function validarLogin($usuario, $senha, $usuarios) {
+                    foreach ($usuarios as $user => $pass) {
+                        if ($usuario === $user && $senha === $pass) {
+                            return true;
+                        }
                     }
+                    return false;
+                }
 
-                    // Verifica se login é válido
+                // Verifica se login é válido
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (validarLogin($usuario, $senha, $usuarios)) {
                         echo "<h2>Bem-vindo, $usuario!</h2>";
                         echo '<a href="../index.php">Tentar novamente</a>';
@@ -40,6 +46,7 @@
                         echo "<h2>Usuário ou senha incorretos.</h2>";
                         echo '<a href="../index.php">Tentar novamente</a>';
                     }
+                }
                 ?>
             </form>
         </div>
