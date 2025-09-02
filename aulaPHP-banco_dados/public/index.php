@@ -1,41 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>PHP</title>
+    <title>Sistema de Tarefas</title>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
+
 <body>
-    <header>
-        <h1>Extraindo criando um array</h1>
-    </header>
-    <main>
+    <h1>Minhas Tarefas</h1>
 
-        <?php
-        echo '<hr>';
+    <!-- Formulario para adicionar nova tarefa -->
+    <input type ="text" id="novaTarefa" palceholde="Digite uma nova tarefa...">
+    <button id="btnAdicionar">Adicionar</button>
 
-        echo '<h2> 1 - Extract </h2>';
+    <!-- Lista de tarefas-->
+    <ul id="listaTarefas"></ul>
 
-        // Criação de um array com chaves em cases variados
-        $array = [
-            'Nome' => 'Maria',
-            'idade' => 40,
-            'PESO' => 50.5
-        ];
+    <script>
+        // Função para buscar e exibir as tarefas
+        async function carregarTarefas() {
+            const reposta = await fetch("../api/lista.php");
+            const tarefas = await resposta.json();
 
-        // Exibe o array original
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
+            const lista = document.getElementById("listaTarefas");
+            lista.innerHTML = ""; // Limpa antes de listar
 
-        // array_rand($array) retorna uma chave aleatoria do array
-        // Em seguida, usamos essa chave para acessar o valor correspondente
-        $busca_aleatoria = $array[array_rand($array)];
+            tarefas.foreach(t => {
+                const li = document.createElement("li")
+                li.textContent = t.titulo;
 
-        // Exibe o valor aleatorio escolhido do array
-        echo "<pre>";
-        print_r($busca_aleatoria);
-        echo "</pre>";
-        ?>
-    </main>
+                if (t.concluida == 1) {
+                    li.style.textDecoration = "line-through";
+                }
+
+                // Botão de concluir
+                const btnCncluir = document.createElement("button");
+                btnConcluir.textContent = t.concluida == 1 ? "Desfazer" : "Concluir";
+                btnConcluir.onclick = async () => {
+                    await fetch("../api/atualizar.php", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            id: t.id,
+                            concluida: t.concluida == 1 ? 0 : 1
+                        })
+                    })
+                    carregarTarefas();
+                };
+
+                // Botão de editar
+                const bntEditar = document.createElement("button");
+                btnEditar.textContent = "Editar";
+                btnEditar.onclick = async () => {
+                    // Abre prompt para editar o texto
+                    const novoTitulo = prompt("Editar tarefa:", t.titulo);
+                    if (novoTitulo && novoTitulo.trim()!=="") {
+                        await fetch("../api/editar.php", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                id: t.id,
+                                titulo:novoTitulo
+                            })
+                        });
+                        carregarTarefas();
+                    }
+                };
+
+                // Botão de excluir
+                const btnExcluir = document.createElement("button");
+                btnExcluir.textContent = "Excluir";
+                btnExcluir.onclick = async () => {
+                    await fetch("../api/excluir.php",{
+                        method: "POST",
+                        body: JSON.stringify({
+                            id: t.id
+                        })
+                    });
+                    carregarTarefas();
+                };
+
+                // Adiciona tudo no item da lista
+                li.append(" ",btnConcluir," ",btnEditar," ", btnExcluir);
+                lista.appendchild(li);
+            });
+
+        }
+
+        // Adiciona nova tarefa
+        document.getElementById("btnAdicionar").onclick = async () =>{
+            const titulo = document.getElementById("novaTarefa").value;
+
+            await fecth("../api/adicionar.php", {
+                method: "POST",
+                body: JSON.stringify({
+                    titulo
+                })
+
+            });
+
+            document.getElementbyid("novaTarefa").value = "";
+                carregarTarefas();
+        };
+        
+        // Carrega ao abrir a pagina
+        carregarTarefas();
+    </script>
 </body>
+
 </hmlt>
