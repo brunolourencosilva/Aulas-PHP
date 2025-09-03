@@ -16,7 +16,7 @@ $titulo = $conn->real_escape_string($dados["titulo"]);
 
 /** Cria a query SQL que ataliza(Altera) o campo titulo da tabela
  *  tarefas para a linha com o id correpondente */
-$sql = "UPDATE tarefas SET concluida = $concluida WHERE id = $id";
+$sql = "UPDATE tarefas SET titulo = '$titulo' WHERE id = $id";
 
 // Executa o comando SQL no banco de dados
 $conn->query($sql);

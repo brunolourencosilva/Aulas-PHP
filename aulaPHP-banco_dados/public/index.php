@@ -20,13 +20,13 @@
     <script>
         // Função para buscar e exibir as tarefas
         async function carregarTarefas() {
-            const reposta = await fetch("../api/lista.php");
+            const resposta = await fetch("../api/listar.php");
             const tarefas = await resposta.json();
 
             const lista = document.getElementById("listaTarefas");
             lista.innerHTML = ""; // Limpa antes de listar
 
-            tarefas.foreach(t => {
+            tarefas.forEach(t => {
                 const li = document.createElement("li")
                 li.textContent = t.titulo;
 
@@ -35,7 +35,7 @@
                 }
 
                 // Botão de concluir
-                const btnCncluir = document.createElement("button");
+                const btnConcluir = document.createElement("button");
                 btnConcluir.textContent = t.concluida == 1 ? "Desfazer" : "Concluir";
                 btnConcluir.onclick = async () => {
                     await fetch("../api/atualizar.php", {
@@ -49,7 +49,7 @@
                 };
 
                 // Botão de editar
-                const bntEditar = document.createElement("button");
+                const btnEditar = document.createElement("button");
                 btnEditar.textContent = "Editar";
                 btnEditar.onclick = async () => {
                     // Abre prompt para editar o texto
@@ -81,7 +81,7 @@
 
                 // Adiciona tudo no item da lista
                 li.append(" ",btnConcluir," ",btnEditar," ", btnExcluir);
-                lista.appendchild(li);
+                lista.appendChild(li);
             });
 
         }
@@ -89,8 +89,9 @@
         // Adiciona nova tarefa
         document.getElementById("btnAdicionar").onclick = async () =>{
             const titulo = document.getElementById("novaTarefa").value;
+            if(titulo.trim()==="")return;
 
-            await fecth("../api/adicionar.php", {
+            await fetch("../api/adicionar.php", {
                 method: "POST",
                 body: JSON.stringify({
                     titulo
@@ -98,7 +99,7 @@
 
             });
 
-            document.getElementbyid("novaTarefa").value = "";
+            document.getElementById("novaTarefa").value = "";
                 carregarTarefas();
         };
         

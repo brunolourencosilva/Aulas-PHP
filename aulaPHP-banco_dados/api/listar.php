@@ -5,7 +5,7 @@
  */
 header("Content-Type: application/json");
 
-include(".../conexao/conexao.php");
+include("../conexao/conexao.php");
 /**
  * Cria uma string com a introdução SQL para selecionar todas as
  * colunas da tabela tarefas, ordenando os registros do maior para o menor id.
